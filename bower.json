@@ -1,0 +1,16 @@
+{
+  "name": "Courageous Trapeze",
+  "version": "0.0.1",
+  "authors": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/lib"
+  ],
+  "dependencies": {
+    "angular": "~1.3.15",
+    "angular-route": "~1.3.15"
+  }
+}
