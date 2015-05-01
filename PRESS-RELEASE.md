@@ -20,16 +20,14 @@ Once the project moves into development, the press release can be used as a touc
 Socialite targets anyone who is too busy or forgetful to send out personal communications to their friends and family.
 
 ## Summary ##
-Socialite allows you to import your Facebook contacts to schedule text and social communications with your closest contacts.
+Socialite allows you to schedule text messages with your closest contacts.
 
 Features:
+- Schedule text messages for specific dates and times in advance
 - Batch manage communications
+- Import contacts from Google Contacts
+- Schedule one-time and recurring correspondence
 - Maintain social ties
-- Schedule one-time and recurring correspondence  
-- Link Facebook account
-- Link phone number through Twilio integration (?)
-- Schedule Facebook and text messages for specific dates and times in advance
-- Schedule communication reminders
 
 ## Problem ##
 It is difficult to maintain social relationships and communications with friends and family during our busy lives.
@@ -45,12 +43,12 @@ Our technology allows you to plan your social communications in one sitting and 
 “Social ties are the keys to happiness in life.”
 
 ## How to Get Started ##
-Integrate with your social platform du jour and quickly import connections. Select connections with whom you would like to stay in contact. Schedule that communication for up to a year in advance with only a couple clicks. 
+Import your contacts from Google Contacts and select connections with whom you would like to stay in contact. Schedule that communication for up to a year in advance with only a couple clicks. 
 
 To quickly get started, follow these simple steps:
 
 1. Log in
-2. Integrate your Facebook and Google+ accounts (phone number too?)
+2. Enter contacts and/or import from Google Contacts
 3. Select contacts you want to send messages to
 4. Type a personal message or select from a collection of prepared messages
 5. Schedule a date and time to send the message
