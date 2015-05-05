@@ -1,0 +1,36 @@
+body {
+  margin: 0px 0px 0px 20px;
+  font-family: "Arial";
+}
+
+h1 {
+  font-size: 24px;
+}
+
+.title {
+  padding: 4px;
+  font-size: 22px;
+  font-weight: bold:
+}
+
+.label {
+  display: inline-block;
+  width: 80px;
+  margin: 4px;
+}
+
+input {
+  display: inline-block;
+  width: 100px;
+  margin: 4px;
+}
+
+#signup, #signin {
+  width: 210px;
+  padding: 10px;
+  margin: 10px;
+
+  border-style: solid;
+  border-color: #eee;
+  border-width: 1px;
+}
