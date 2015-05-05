@@ -3,10 +3,7 @@ var mongoose = require('mongoose');
 var contactSchema = new mongoose.Schema({
   // Reference user collection for id
   // see: http://docs.mongodb.org/manual/reference/database-references/
-  id: {
-    type: String,
-    required: true
-  },
+  // contact id is generated automatically by Mongo
   googleId: {
     type: String
   },

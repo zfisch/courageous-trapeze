@@ -11,11 +11,11 @@ module.exports = {
   },
   signin: function (request, response) {
   // logic to add or update User after server receives POST request
-  },
+  }
   // edit: function (request, response) {
   // // logic to add or update User after server receives POST request
   // },
-  show: function (request, response) {
-  // logic to return User profile after server receives GET request
-  }
+  // show: function (request, response) {
+  // // logic to return User profile after server receives GET request
+  // }
 };

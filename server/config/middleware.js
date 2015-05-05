@@ -13,10 +13,12 @@ module.exports = function (app, express) {
   var contactRouter = express.Router();
 
   // mount middleware functions at the specified paths
+
+  app.use(express.static(__dirname + '/../../client'));
   // see: http://expressjs.com/api.html re: app.use()
-  app.use('api/users', userRouter);
-  app.use('api/messages', messageRouter);
-  app.use('api/contacts', contactRouter);
+  app.use('/api/users', userRouter);
+  app.use('/api/messages', messageRouter);
+  app.use('/api/contacts', contactRouter);
 
   // call routes with express Routers passed as parameters
   userRoutes(userRouter);

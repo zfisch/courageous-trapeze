@@ -9,6 +9,16 @@ module.exports = {
   addContact: function (request, response) {
   // logic to add or update Contact after server receives POST request
   // accept array of contact objects
+  var convertPhone = function (phone) {
+      var phoneArray = phone.split('');
+      var phoneNum = [];
+      for (var i = 0; i < phoneArray.length; i++) {
+        if (!isNaN(phoneArray[i])) {
+          phoneNum.push(phoneArray[i]);
+        }
+      }
+      return Number(phoneNum.join(''));
+    };
   },
   
   showContacts: function (request, response) {
