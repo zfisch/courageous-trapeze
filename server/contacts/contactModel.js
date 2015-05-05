@@ -4,6 +4,8 @@ var contactSchema = new mongoose.Schema({
   // Reference user collection for id
   // see: http://docs.mongodb.org/manual/reference/database-references/
   // contact id is generated automatically by Mongo
+  //_id: Number,
+
   googleId: {
     type: String
   },
@@ -16,6 +18,12 @@ var contactSchema = new mongoose.Schema({
     // validate: [/\(\d{3}\)\d{3}-\d{4}/,
     // 'phone number required to be in (123)456-7890 format'],
     required: true
+  },
+  userId: {
+    type: String,
+    //type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    //required: true
   }
 });
 
