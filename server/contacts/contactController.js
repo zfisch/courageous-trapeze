@@ -61,8 +61,9 @@ module.exports = {
   
   showContacts: function (request, response) {
   // logic to return all Contacts after server receives GET request
-  // check with Mike how sessions are being created
-    Contact.find({userId: request.user.userId}, function (error, docs) {
+
+    var query = { 'userId' : request.user.userId };
+    Contact.find(query, function (error, docs) {
       if (error) {
         response.status(500).end('Error: Could not find contacts');
       } else {

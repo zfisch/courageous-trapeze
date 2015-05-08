@@ -9,29 +9,22 @@ var messageSchema = new mongoose.Schema({
   // see: http://mongoosejs.com/docs/guide.html#_id
 
   userId: {
-    type: String,
-    //type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
+    //type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+    //required: true
   },
   contactId: {
-    type: String,
-    //type: mongoose.Schema.Types.ObjectId,
-    ref: 'Contact',
-    required: true
+    //type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Contact'
   },
-  // contactPhone: {
-  //   type: String,
-  //   // validate: [/\(\d{3}\)\d{3}-\d{4}/,
-  //   // 'phone number required to be in (123)456-7890 format'],
-  //   required: true
-  // },
   text: {
     type: String,
     required: true
   },
   date: {
-    type: Date,
+    type: Number,
     required: true
   },
   status: {

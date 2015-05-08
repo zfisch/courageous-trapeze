@@ -1,20 +1,21 @@
 angular.module('courageousTrapeze.messages', [])
 
-.controller('MessagesController', ['$scope', 'Auth', 'Messages', function($scope, Auth, Messages) {
+.controller('MessagesController', ['$scope', 'Auth', 'Messages', function ($scope, Auth, Messages) {
   $scope.loading = false;
   $scope.messages = [];
   $scope.signout = Auth.signout;
 
-  $scope.getAllMessages = function() {
+  $scope.getAllMessages = function () {
     $scope.loading = true;
     Messages.fetch()
-      .then(function(messages) {
+      .then(function (messages) {
+        console.log(messages);
         $scope.messages = messages;
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.error(error);
       })
-      .finally(function() {
+      .finally(function () {
         $scope.loading = false;
       });
   };

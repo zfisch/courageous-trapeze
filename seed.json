@@ -1,6 +1,5 @@
-// see: https://www.npmjs.com/package/node-mongo-seeds for usage instructions
 {
-	"undefined": "localhost/courageoustrapezedb",
-	"dev": "localhost/courageoustrapezedb",
-	"prod": "localhost/PROD_DB_NAME"
+  "undefined":"localhost/courageoustrapezedb",
+  "dev":"localhost/courageoustrapezedb",
+  "prod":"localhost/PROD_DB_NAME" 
 }

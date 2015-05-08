@@ -1,11 +1,11 @@
 angular.module('courageousTrapeze.factories', [])
-.factory('AttachTokens', ['$window', function($window) {
+.factory('AttachTokens', ['$window', function ($window) {
   // this is an $httpInterceptor
   // its job is to stop all out going request
   // then look in localStorage and find the user's token
   // then add it to the header so the server can validate the request
   var attach = {
-    request: function(object) {
+    request: function (object) {
       var jwt = $window.localStorage.getItem('courageousTrapeze');
       if (jwt) {
         object.headers['x-access-token'] = jwt;
@@ -16,12 +16,12 @@ angular.module('courageousTrapeze.factories', [])
   return attach;
 }])
 
-.factory('Auth', ['$http', '$location', '$window', function($http, $location, $window) {
+.factory('Auth', ['$http', '$location', '$window', function ($http, $location, $window) {
   // this is responsible for authenticating the user
   // by exchanging the user's username and password
   // for a JWT from the server
   // that JWT is then stored in localStorage as 'courageousTrapeze'
-  var signin = function(user) {
+  var signin = function (user) {
     return $http({
       method: 'POST',
       url: '/api/users/signin',
@@ -29,7 +29,7 @@ angular.module('courageousTrapeze.factories', [])
     });
   };
 
-  var signup = function(user) {
+  var signup = function (user) {
     return $http({
       method: 'POST',
       url: '/api/users/signup',
@@ -37,11 +37,11 @@ angular.module('courageousTrapeze.factories', [])
     });
   };
 
-  var isAuth = function() {
+  var isAuth = function () {
     return !!$window.localStorage.getItem('courageousTrapeze');
   };
 
-  var signout = function() {
+  var signout = function () {
     $window.localStorage.removeItem('courageousTrapeze');
     $location.path('/signin');
   };
@@ -54,22 +54,22 @@ angular.module('courageousTrapeze.factories', [])
   };
 }])
 
-.factory('Contacts', ['$window', '$http', function($window, $http) {
+.factory('Contacts', ['$window', '$http', function ($window, $http) {
   var apiKey = 'AIzaSyAV41kUUlEkX76SX5rCvqBjnYBFps5NTVU';
   var clientId = '268795846253-ki9ir03vivk01jnvgheuhpbr78bguen8.apps.googleusercontent.com';
   var scope = 'https://www.google.com/m8/feeds';
   var myContactsGroupId;
   var _contacts = [];
 
-  var getAll = function() {
+  var getAll = function () {
     return _contacts;
   };
 
-  var setContacts = function(contacts) {
+  var setContacts = function (contacts) {
     _contacts = contacts;
   };
   
-  var getGoogleMyContactsGroup = function(authResult) {
+  var getGoogleMyContactsGroup = function (authResult) {
     return new Promise(function(resolve, reject) {
       $http.jsonp(scope + '/groups/default/full', {
         params: {
@@ -81,7 +81,7 @@ angular.module('courageousTrapeze.factories', [])
           v: '3.0'
         }
       })
-      .success(function(data) {
+      .success(function (data) {
         angular.forEach(data.feed.entry, function(group) {
           if (group.gContact$systemGroup && group.gContact$systemGroup.id.toLowerCase() === 'contacts') {
             myContactsGroupId = group.id.$t;
@@ -89,7 +89,7 @@ angular.module('courageousTrapeze.factories', [])
         });
         resolve(authResult);
       })
-      .error(function(error) {
+      .error(function (error) {
         console.error(error);
         reject(error);
       });
@@ -97,7 +97,7 @@ angular.module('courageousTrapeze.factories', [])
   };
 
   var getGoogleMyContacts = function(authResult) {
-    return new Promise(function(resolve, reject) {
+    return new Promise(function (resolve, reject) {
       $http.jsonp(scope + '/contacts/default/full', {
         params: {
           alt: 'json-in-script',
@@ -120,10 +120,10 @@ angular.module('courageousTrapeze.factories', [])
     });
   };
 
-  var getGoogleAuth = function() {
-    return new Promise(function(resolve, reject) {
+  var getGoogleAuth = function () {
+    return new Promise(function (resolve, reject) {
       $window.gapi.client.setApiKey(apiKey);
-      $window.gapi.auth.authorize({client_id: clientId, scope: scope, immediate: false}, function(authResult) {
+      $window.gapi.auth.authorize({client_id: clientId, scope: scope, immediate: false}, function (authResult) {
         if (authResult && !authResult.error) {
           resolve(authResult);
         } else {
@@ -134,42 +134,42 @@ angular.module('courageousTrapeze.factories', [])
   };
 
   var importFromGoogle = function() {
-    return new Promise(function(resolve, reject) {
-      getGoogleAuth().then(getGoogleMyContactsGroup).then(getGoogleMyContacts).then(function(contacts) {
+    return new Promise(function (resolve, reject) {
+      getGoogleAuth().then(getGoogleMyContactsGroup).then(getGoogleMyContacts).then(function (contacts) {
         console.log('Results from Google', contacts);
         resolve(contacts);
-      }).catch(function(error) {
+      }).catch(function (error) {
         reject(error);
       });
     });
   };
 
-  var fetch = function() {
+  var fetch = function () {
     return $http({
       method: 'GET',
       url: '/api/contacts'
     })
-    .then(function(response) {
+    .then(function (response) {
       setContacts(response.data);
       return getAll();
     });
   };
 
-  var addContact = function(contacts) {
+  var addContact = function (contacts) {
     return $http({
       method: 'POST',
       url: '/api/contacts',
       headers: {'Content-Type': 'application/json'},
       data: contacts,
       responseType: 'json'
-    }).success(function(data) {
+    }).success(function (data) {
       if (data) {
-        data.forEach(function(contact) {
+        data.forEach(function (contact) {
           _contacts.push(contact);
         });
       }
       return data;
-    }).error(function(data) {
+    }).error(function (data) {
       console.error('addContact failed', data);
     });
   };
@@ -183,23 +183,30 @@ angular.module('courageousTrapeze.factories', [])
   };
 }])
 
-.factory('Messages', ['$http', function($http) {
-  var fetch = function() {
+.factory('Messages', ['$http', function ($http) {
+  var fetch = function () {
     return $http({
       method: 'GET',
       url: '/api/messages'
     })
-    .then(function(response) {
+    .then(function (response) {
       return response.data;
     });
   };
 
-  var addMessage = function(message) {
+  var addMessage = function (message) {
     return $http({
       method: 'POST',
       url: '/api/messages',
       data: message
+    }).success(function (response) {
+      console.log(response);
+    }).error(function (response) {
+      console.error('addMessage failed', response);
     });
+    // .then(function (response) {
+    //   console.log(response.data);
+    // });
   };
 
   return {

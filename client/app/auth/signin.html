@@ -1,7 +1,15 @@
 <div id="signin">
-  <div class="title">Sign-In</div>
-  <div><span class="label">User:</span><input type="text" ng-model="user.username"></div>
-  <div><span class="label">Password:</span><input type="password" ng-model="user.password"></div>
-  <button ng-click="signin()">Sign-In</button><button ng-click="signout()">Sign-Out</button>
-  <div><a href="/#/signup">Sign Up</a></div>
+  <div class="title">Sign In</div>
+  <form class="pure-form pure-form-stacked">
+    <fieldset>
+      <label for="username">User:</label>
+      <input type="text" id="username" ng-model="user.username" class="pure-input-1">
+      <label for="password">Password:</label>
+      <input type="password" id="password" ng-model="user.password" class="pure-input-1">
+      <button ng-click="signin()" class="pure-button pure-button-primary">Sign In</button>
+      <button ng-click="signout()" class="pure-button">Sign Out</button>
+    </fieldset>
+  </form>
+    <p> Already have an account? </p>
+    <div><a href="/#/signup">Sign Up</a></div>
 </div>

@@ -7,6 +7,11 @@ h1 {
   font-size: 24px;
 }
 
+button {
+  text-decoration: none;
+  color: #fff;
+}
+
 .title {
   padding: 4px;
   font-size: 22px;
@@ -28,7 +33,6 @@ input {
 button {
   margin: 4px;
   padding: 4px;
-  height: 25px;
   border-radius: 3px;
 }
 
@@ -37,11 +41,57 @@ button:focus {
 }
 
 #signup, #signin {
-  width: 210px;
+  width: 500px;
   padding: 10px;
   margin: 10px;
 
   border-style: solid;
   border-color: #eee;
   border-width: 1px;
+}
+
+.article {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.selectedContact {
+  border-style: solid;
+  border-color: blue;
+}
+
+.custom-restricted-width {
+    /* To limit the menu width to the content of the menu: */
+    display: inline-block;
+    /* Or set the width explicitly: */
+    /* width: 10em; */
+}
+
+.searchInput {
+  margin: 0 0 1em 0;
+}
+
+.icon {
+  width: 60px;
+  padding: 5px;
+}
+
+.heading {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.headingBar {
+  width: 100%;
+  background-color: #fff;
+}
+
+#index {
+  text-align: center;
+}
+
+.message {
+  border-style: solid;
+  border-color: blue; 
+  margin: 10px;
 }
