@@ -24,9 +24,8 @@ Socialite allows you to import your Facebook contacts to schedule text and socia
 
 ## Requirements
 
-- Node 0.10.x
-- etc
-- etc
+- Node 0.12.2
+- MongoDB 2.6.9+
 
 ## Development
 
@@ -40,9 +39,37 @@ npm install
 bower install
 ```
 
+### Build
+
+From within the root directory:
+
+```sh
+grunt
+grunt watch
+```
+
+### Run
+
+From within the root directory:
+
+```sh
+mongod (or sudo mongod)
+node index.js
+```
+
+Navigate to [http://localhost:3000](http://localhost:3000) in your browser.
+
 ### Roadmap
 
 View the project roadmap [here](https://github.com/courageous-trapeze/courageous-trapeze/issues)
+
+## Deployment
+
+Be sure to run the default grunt tasks before deploying to your favorite host.
+
+```sh
+grunt
+```
 
 
 ## Contributing
