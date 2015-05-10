@@ -1,8 +1,9 @@
 angular.module('courageousTrapeze.contacts', [])
 
-.controller('ContactsController', ['$scope', '$window', '$http', 'Contacts', function($scope, $window, $http, Contacts) {
+.controller('ContactsController', ['$scope', '$window', '$http', 'Auth', 'Contacts', function($scope, $window, $http, Auth, Contacts) {
   $scope.loading = false;
   $scope.contacts = [];
+  $scope.signout = Auth.signout;
 
   $scope.getAllContacts = function() {
     $scope.loading = true;
