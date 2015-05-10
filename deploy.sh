@@ -2,7 +2,7 @@
 
 # ----------------------
 # KUDU Deployment Script
-# Version: 0.1.7
+# Version: 0.2.2
 # ----------------------
 
 # Helpers
@@ -77,7 +77,7 @@ selectNodeVersion () {
       NODE_EXE=`cat "$DEPLOYMENT_TEMP/__nodeVersion.tmp"`
       exitWithMessageOnError "getting node version failed"
     fi
-
+    
     if [[ -e "$DEPLOYMENT_TEMP/.tmp" ]]; then
       NPM_JS_PATH=`cat "$DEPLOYMENT_TEMP/__npmVersion.tmp"`
       exitWithMessageOnError "getting npm version failed"
@@ -127,18 +127,15 @@ if [ -e "$DEPLOYMENT_TARGET/bower.json" ]; then
   cd - > /dev/null
 fi
 
-# Running the grunt build with the concat task produces an error on Azure
-# As a result, all the Grunt build tasks are done locally prior to deployment
-#
 # 5. Run grunt
-# if [ -e "$DEPLOYMENT_TARGET/Gruntfile.js" ]; then
-#   cd "$DEPLOYMENT_TARGET"
-#   eval $NPM_CMD install grunt-cli
-#   exitWithMessageOnError "installing grunt failed"
-#   ./node_modules/.bin/grunt --no-color build
-#   exitWithMessageOnError "grunt failed"
-#   cd - > /dev/null
-# fi
+if [ -e "$DEPLOYMENT_TARGET/Gruntfile.js" ]; then
+  cd "$DEPLOYMENT_TARGET"
+  eval $NPM_CMD install grunt-cli
+  exitWithMessageOnError "installing grunt failed"
+  ./node_modules/.bin/grunt --no-color build
+  exitWithMessageOnError "grunt failed"
+  cd - > /dev/null
+fi
 ##################################################################################################################################
 
 # Post deployment stub

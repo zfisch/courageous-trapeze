@@ -24,7 +24,7 @@ Socialite allows you to import your Facebook contacts to schedule text and socia
 
 ## Requirements
 
-- Node 0.12.2
+- Node 0.12.0
 - MongoDB 2.6.9+
 
 ## Development
@@ -65,12 +65,7 @@ View the project roadmap [here](https://github.com/courageous-trapeze/courageous
 
 ## Deployment
 
-Be sure to run the default grunt tasks before deploying to your favorite host.
-
-```sh
-grunt
-```
-
+Make sure there is an environment variable for `DATABASE_URL` on the host that specifies the URL of your MongoDB instance.
 
 ## Contributing
 
