@@ -15,14 +15,7 @@ module.exports = {
       if (typeof phone === 'number') {
         return phone;
       }
-      var phoneArray = phone.split('');
-      var phoneNum = [];
-      for (var i = 0; i < phoneArray.length; i++) {
-        if (!isNaN(phoneArray[i])) {
-          phoneNum.push(phoneArray[i]);
-        }
-      }
-      return Number(phoneNum.join(''));
+      return Number(phone.replace(/\D/g, ''));
     };
 
     // map array of contacts received in request to new objects 
@@ -57,7 +50,7 @@ module.exports = {
       Contact.create(newContacts, function (error, docs) {
         if (error) {
           console.log(error);
-          response.status(500).send('Error: Could not save contacts');
+          response.status(500).end('Error: Could not save contacts');
         } else {
           response.status(200).send(docs);
         }
@@ -70,7 +63,7 @@ module.exports = {
   // check with Mike how sessions are being created
     Contact.find({ userId: 3 }, function (error, docs) {
       if (error) {
-        response.status(500).send('Error: Could not find contacts');
+        response.status(500).end('Error: Could not find contacts');
       } else {
         response.set('Content-Type', 'application/json');
         if (docs) {
