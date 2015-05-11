@@ -1,6 +1,6 @@
-# Socialite
+# antiSocialite
 
-Socialite allows you to import your Facebook contacts to schedule text and social communications with your closest contacts.
+antiSocialite allows you to schedule SMS communications with your closest contacts.
 
 ## Team
 
