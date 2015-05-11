@@ -1,7 +1,7 @@
 'use strict';
 var schedule = angular.module('courageousTrapeze.schedule', []);
 
-schedule.controller('ScheduleController', ['$scope', 'Messages', 'Contacts', function ($scope, Messages, Contacts) {
+schedule.controller('ScheduleController', ['$scope', 'Messages', 'Contacts', '$document', function ($scope, Messages, Contacts, $document) {
   $scope.message = {
     contactId: '',
     text: '',
@@ -15,6 +15,7 @@ schedule.controller('ScheduleController', ['$scope', 'Messages', 'Contacts', fun
     promise.then(function (response) {
       $scope.contacts = response;
     });
+    $scope.notification = '';
   });
 
   $scope.setContact = function (contact, $event) {
@@ -30,6 +31,9 @@ schedule.controller('ScheduleController', ['$scope', 'Messages', 'Contacts', fun
       $scope.message.text = '';
       $scope.message.date = '';
       $scope.loading = false;
+      var result = document.getElementsByClassName('selectedContact');
+      angular.element(result).removeClass('selectedContact');
+      $scope.notification = 'Good work, your message is scheduled!';
     })
     .error(function () {
       $scope.loading = false;

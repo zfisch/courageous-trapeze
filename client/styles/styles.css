@@ -1,15 +1,41 @@
+html {
+  height: 100%;
+}
+
 body {
-  margin: 0px 0px 0px 20px;
-  font-family: "Arial";
+  /*margin: 0 0 0 20px;*/
+  height: 100%;
 }
 
 h1 {
   font-size: 24px;
 }
 
+h1, h2, h3, h4, h5, h6, p, a {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h3 {
+  color: #F38630;
+}
+
 button {
+  margin: 4px;
+  padding: 4px;
+  border-radius: 3px;
+}
+
+a {
+  color: #69D2E7;
   text-decoration: none;
+}
+
+.white-text {
   color: #fff;
+}
+
+.gray-text {
+  color: rgba(0,0,0,.8);
 }
 
 .title {
@@ -30,12 +56,6 @@ input {
   margin: 4px;
 }
 
-button {
-  margin: 4px;
-  padding: 4px;
-  border-radius: 3px;
-}
-
 button:focus {
   outline: 0px;
 }
@@ -45,6 +65,7 @@ button:focus {
   padding: 10px;
   margin: 10px;
 
+  margin: 10px auto;
   border-style: solid;
   border-color: #eee;
   border-width: 1px;
@@ -56,8 +77,7 @@ button:focus {
 }
 
 .selectedContact {
-  border-style: solid;
-  border-color: blue;
+  background-color: #69D2E7;
 }
 
 .custom-restricted-width {
@@ -74,24 +94,62 @@ button:focus {
 .icon {
   width: 60px;
   padding: 5px;
+  vertical-align: middle;
+  display: inline-block;
 }
 
 .heading {
-    display: inline-block;
-    vertical-align: top;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 15px 0;
 }
 
 .headingBar {
   width: 100%;
-  background-color: #fff;
+  background-color: #A7DBD8;
+  color: #fff;
+  height: 60px;
+}
+
+.tall {
+  margin: 0;
+  height: 100%;
 }
 
 #index {
   text-align: center;
+  background: url('/assets/calendar.jpeg') bottom;
+  height: 100%;
+  background-size: cover;
+
 }
 
 .message {
-  border-style: solid;
-  border-color: blue; 
+  border-radius: 10px;
   margin: 10px;
+  border: 1px solid #E0E4CC;
+  padding: 0 10px;
+}
+
+.menu {
+  padding: 10px;
+}
+
+.pure-button-primary {
+  background-color: #69D2E7 !important;
+}
+
+.pure-menu-item {
+  padding: 5px !important;
+}
+
+.hello {
+  margin-top: 0px;
+  padding: 40px 0 0 0;
+}
+
+#greeting {
+  background-color: rgba(255,255,255,0.1);
+  height: 100%;
+  padding-bottom: 40px;
 }

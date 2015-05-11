@@ -1,7 +1,7 @@
 <div class="pure-g">
 
   <div class="pure-u-1-4">
-    <div class="pure-menu custom-restricted-width">
+    <div class="pure-menu custom-restricted-width menu">
       <ul class="pure-menu-list">
         <li class="pure-menu-item"><a href="/#/messages">Messages</a></li>
         <li class="pure-menu-item"><a href="/#/contacts">Contacts</a></li>
@@ -16,22 +16,22 @@
     <h2>Schedule Message</h2>
     <form class="pure-form pure-form-stacked">
       <fieldset>
-      <div class="pure-input-1-2">
+      <div class="pure-input-2-3">
         <span>Select Contact Name</span>
         <ul>
           <li ng-repeat= "contact in contacts track by $index" ng-click="setContact(contact, $event)">{{ contact.name }}</li>
         </ul>
       </div>
       <label for="text">Text Message</label>
-      <textarea id="text" type="text" ng-model="message.text" class="pure-input-1-2"></textarea>
+      <textarea id="text" type="text" ng-model="message.text" class="pure-input-2-3"></textarea>
       <label for="date">Scheduled Date</label>
-      <input id="date" type="date" ng-model="message.date" class="pure-input-1-2">
+      <input id="date" type="date" ng-model="message.date" class="pure-input-2-3">
       <button ng-click="addMessage(message)" class="pure-button pure-button-primary">Submit</button> 
       <img src="assets/spiffygif_46x46.gif" alt="Loading" ng-show="loading">
 
       </fieldset>
     </form>
+    <p>{{ notification }}</p>
   </div>   
-
     <!--<h1>{{ message }}</h1>-->
 </div>
