@@ -1,6 +1,7 @@
 'use strict';
 var bodyParser = require('body-parser');
 var authUtil = require('./authUtil.js');
+var allowCors = require('./cors.js');
 
 module.exports = function (app, express) {
 
@@ -25,6 +26,8 @@ module.exports = function (app, express) {
   messageRoutes(messageRouter);
   contactRoutes(contactRouter);
 
+  app.use(allowCors);
+
   app.use('/api/messages', authUtil.decodeTokenAttachToReq);
   app.use('/api/contacts', authUtil.decodeTokenAttachToReq);
 
@@ -32,21 +35,3 @@ module.exports = function (app, express) {
   app.use('/api/messages', messageRouter);
   app.use('/api/contacts', contactRouter);
 };
-
-
-// using router as middleware (version 1)
-// var userRoutes = function (router) {
-//   router.post('/signup', userController.signup);
-//   router.post('/signin', userController.signin);
-// };
-// userRoutes(userRouter);
-
-// // using router as middleware (version 2)
-// userRouter.post('/signup', userController.signup);
-// userRouter.post('/signin', userController.signin);
-
-// var router = express.Router();
-// router.get('/', function (req, res, next) {
-//   next();
-// })
-// app.use(router);
