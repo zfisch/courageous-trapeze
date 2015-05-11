@@ -16,17 +16,16 @@ Oh, and I also like to write press-releases in what I call "Oprah-speak" for mai
 Once the project moves into development, the press release can be used as a touchstone; a guiding light. The product team can ask themselves, "Are we building what is in the press release?" If they find they're spending time building things that aren't in the press release (overbuilding), they need to ask themselves why. This keeps product development focused on achieving the customer benefits and not building extraneous stuff that takes longer to build, takes resources to maintain, and doesn't provide real customer benefit (at least not enough to warrant inclusion in the press release).
  -->
  
-## Socialite ##
-Socialite targets anyone who is too busy or forgetful to send out personal communications to their friends and family.
+## antiSocialite ##
+antiSocialite targets anyone who is too busy or forgetful to send out personal communications to their friends and family.
 
 ## Summary ##
-Socialite allows you to schedule text messages with your closest contacts.
+antiSocialite allows you to schedule text messages with your closest contacts.
 
 Features:
-- Schedule text messages for specific dates and times in advance
+- Schedule text messages for specific dates in advance
 - Batch manage communications
 - Import contacts from Google Contacts
-- Schedule one-time and recurring correspondence
 - Maintain social ties
 
 ## Problem ##
@@ -51,7 +50,7 @@ To quickly get started, follow these simple steps:
 2. Enter contacts and/or import from Google Contacts
 3. Select contacts you want to send messages to
 4. Type a personal message or select from a collection of prepared messages
-5. Schedule a date and time to send the message
+5. Schedule a date to send the message
 6. Sit back and relax
 
 ## Customer Quotes ##
@@ -64,6 +63,6 @@ To quickly get started, follow these simple steps:
 ## Closing and Call to Action ##
 Time is fleeting. Social connections, albeit time consuming, are critical. Take the overhead of contact management out of the equation. Who wouldn’t want a personal assistant? Now you can be your own personal assistant to the future you...in bots we trust.  
 
-Ever unintentionally fallen out of contact with someone? Everyone has. What if I could guarantee that you will never be the person at fault for the loss of connection again? With Socialite personal correspondence management, track and schedule your communications.
+Ever unintentionally fallen out of contact with someone? Everyone has. What if I could guarantee that you will never be the person at fault for the loss of connection again? With antiSocialite personal correspondence management, track and schedule your communications.
 
 If you need any additional assistance, please read our FAQ.
