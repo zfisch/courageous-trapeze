@@ -7,7 +7,8 @@ angular.module('courageousTrapeze', [
   'ngRoute'
 ])
 
-.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
+// see: https://docs.angularjs.org/api/ngRoute/provider/$routeProvider
+.config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
   $routeProvider
     .when('/signin', {
       templateUrl: 'app/auth/signin.html',
@@ -49,17 +50,16 @@ angular.module('courageousTrapeze', [
   $httpProvider.interceptors.push('AttachTokens');
 }])
 
-.controller('IndexController', function() {
+.controller('IndexController', function () {
   // Intentionally left blank
 })
-
-.run(['$rootScope', '$location', 'Auth', function($rootScope, $location, Auth) {
+.run(['$rootScope', '$location', 'Auth', function ($rootScope, $location, Auth) {
   // add a listener for before a route changes that will check
   // if the intended route requires authentication, 
   // check for a token in localStorage and send that token to the server
   // to verify if it is a real user and the token hasn't expired
   // if it's not valid, then redirect to /
-  $rootScope.$on('$routeChangeStart', function(evt, next) {
+  $rootScope.$on('$routeChangeStart', function (evt, next) {
     if (next.$$route && next.$$route.authenticate && !Auth.isAuth()) {
       $location.path('/');
     }

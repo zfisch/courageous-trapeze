@@ -6,22 +6,25 @@ var _ = require('underscore');
 
 // local dependencies
 var Message = require('./messageModel.js');
+var Contact = require('../contacts/contactModel.js');
+
 
 module.exports = {
   addMessage: function (request, response) {
   // logic to add or update Message after server receives POST request
+    console.log(request.user.userId);
     var messageObject = {
-      userId: request.body.userId,
+      userId: request.user.userId,
       contactId: request.body.contactId,
       text: request.body.text,
-      date: new Date(),
+      date: Date.parse(request.body.date) || request.body.date,
       status: 'scheduled'
     };
-    console.log(messageObject);
     // see: http://mongoosejs.com/docs/models.html
     var newMessage = new Message(messageObject);
     newMessage.save(function (error, doc) {
       if (error) {
+        console.log(error);
         response.status(500).send('Error: Could not save message');
       } else {
         response.status(200).send(doc);
@@ -50,22 +53,27 @@ module.exports = {
   
   showMessages: function (request, response) {
   // return all Messages after server receives GET request
-    
-    Message.find({ userId: 1 }, function (error, docs) {
+    var query = Message.find({ userId: request.user.userId });
+    query.exec(function (error, docs) {
       if (error) {
-        response.status(500).send('Error: Could not send docs');
+        response.status(500).send('Error: could not send docs');
       } else {
-        var populateQuery = [{path: 'contactId', model: 'Contact'}, {path: 'contactPhone', model: 'Contact'}];
-        response.status(200).send(docs);
-        // Message.populate(docs, populateQuery, function (error, newDocs) {
-        //   console.log(newDocs);
-        //   response.status(200).send(newDocs);
-        // });
+        console.log('docs:', docs);
+        populate(docs);
       }
     });
+
+    var populate = function (docs) {
+      var opts = [{path: 'contactId', model: 'Contact'}, {path: 'userId', model: 'User'}];
+      Message.populate(docs, opts, function (error, newDocs) {
+        if (error) {
+          console.log(error);
+          response.status(500).send('Error: could not populate docs');
+        } else {
+          console.log('newDocs:', newDocs);
+          response.status(200).send(newDocs);
+        }
+      });
+    };
   }
 };
-
-// Message.findOne({ _id: newMessage._id })
-// .populate('userId').populate('contactId');
-

@@ -1,0 +1,22 @@
+[
+  { 
+  "userId" : "554edb34cf4b6460610df607", 
+  "contactId" : "554edb34cf4b6460610df603", 
+  "text" : "Hello, how are you?", 
+  "date" : 1431673200000
+  },
+
+  { 
+  "userId" : "554edb34cf4b6460610df607", 
+  "contactId" : "554edb34cf4b6460610df603", 
+  "text" : "Hello, how are you!?", 
+  "date" : 1431673200000
+  },
+
+  { 
+  "userId" : "554edb34cf4b6460610df607", 
+  "contactId" : "554edb34cf4b6460610df603", 
+  "text" : "hiiiiii", 
+  "date" : 1431673200000
+  }
+]

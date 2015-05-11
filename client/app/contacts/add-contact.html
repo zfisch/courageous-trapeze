@@ -1,24 +1,37 @@
-<nav>
-  <a href="/#/messages">Messages</a>
-  <a href="/#/contacts">Contacts</a>
-  <a href="/#/add-contact">Add Contact</a>
-  <a href="/#/signout" ng-click="Auth.signout()">Sign out</a>
-</nav>
+<div class="pure-g">
+    <script src="https://apis.google.com/js/client.js"></script>
 
-<div id="add-contact">
-  <script src="https://apis.google.com/js/client.js"></script>
-  <h2>Add Contact</h2>
-  <button ng-click="importGoogleContacts()">Import Google Contacts</button> <img src="assets/spiffygif_46x46.gif" alt="Loading" ng-show="loading">
-  <form name="newContactForm" id="newContactForm" ng-submit="addNewContact()">
-    <input type="text" name="name" id="name" ng-model="name" placeholder="Name"><br>
-    <input type="tel" name="phone" id="phone" ng-model="phone" placeholder="Mobile Phone"><br>
-    <button type="submit">Add</button>
-  </form>
-  <div ng-show="newContacts">
-    <h3>Contacts added:</h3>
-    <div ng-repeat="contact in newContacts">
-      Name: {{ contact.name }}<br>
-      Phone: {{ contact.phone }}
+  <div class="pure-u-1-4">
+    <div class="pure-menu custom-restricted-width">
+      <ul class="pure-menu-list">
+        <li class="pure-menu-item"><a href="/#/messages">Messages</a></li>
+        <li class="pure-menu-item"><a href="/#/contacts">Contacts</a></li>
+        <li class="pure-menu-item"><a href="/#/add-contact">Add Contact</a></li>
+        <li class="pure-menu-item"><a href="/#/schedule">Schedule Message</a></li>
+        <li class="pure-menu-item"><a href="/#/" ng-click="signout()">Sign out</a></li>
+      </ul>
     </div>
   </div>
+  
+  <div id="add-contact" class="pure-u-3-4">
+    <h2>Add Contact</h2>
+    <button ng-click="importGoogleContacts()" class= "pure-button">Import Google Contacts</button> <img src="assets/spiffygif_46x46.gif" alt="Loading" ng-show="loading">
+    <form name="newContactForm" id="newContactForm" ng-submit="addNewContact()" class="pure-form pure-form-stacked">
+      <fieldset>
+        <label for="name">Contact Name</label>
+        <input type="text" name="name" id="name" ng-model="name" placeholder="Name" class="pure-input-1-2">
+        <label for="phone">Contact Phone</label>
+        <input type="tel" name="phone" id="phone" ng-model="phone" placeholder="Mobile Phone" class="pure-input-1-2"><br>
+        <button type="submit" class="pure-button pure-button-primary">Add</button>
+        </fieldset>
+    </form>
+    <div ng-show="newContacts">
+      <h3>Contacts added:</h3>
+      <div ng-repeat="contact in newContacts">
+        Name: {{ contact.name }}<br>
+        Phone: {{ contact.phone }}
+      </div>
+    </div>
+  </div>
+
 </div>

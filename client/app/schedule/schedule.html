@@ -1,15 +1,37 @@
-<div id="schedule">
-  <h1>Add Message</h1>
-  <div>
-    <span class="label">Contact Name</span>
-    <input type="text" ng-model="message.contact">
+<div class="pure-g">
+
+  <div class="pure-u-1-4">
+    <div class="pure-menu custom-restricted-width">
+      <ul class="pure-menu-list">
+        <li class="pure-menu-item"><a href="/#/messages">Messages</a></li>
+        <li class="pure-menu-item"><a href="/#/contacts">Contacts</a></li>
+        <li class="pure-menu-item"><a href="/#/add-contact">Add Contact</a></li>
+        <li class="pure-menu-item"><a href="/#/schedule">Schedule Message</a></li>
+        <li class="pure-menu-item"><a href="/#/" ng-click="signout()">Sign out</a></li>
+      </ul>
+    </div>
   </div>
-  <div>
-    <span class="label">Text Message</span>
-    <input type="text" ng-model="message.text">
-  </div>
-  <div>
-    <span class="label">Scheduled Date</span>
-    <input type="date" ng-model="message.date">
-  </div>    
+
+  <div class="article pure-u-3-4">
+    <h2>Schedule Message</h2>
+    <form class="pure-form pure-form-stacked">
+      <fieldset>
+      <div class="pure-input-1-2">
+        <span>Select Contact Name</span>
+        <ul>
+          <li ng-repeat= "contact in contacts track by $index" ng-click="setContact(contact, $event)">{{ contact.name }}</li>
+        </ul>
+      </div>
+      <label for="text">Text Message</label>
+      <textarea id="text" type="text" ng-model="message.text" class="pure-input-1-2"></textarea>
+      <label for="date">Scheduled Date</label>
+      <input id="date" type="date" ng-model="message.date" class="pure-input-1-2">
+      <button ng-click="addMessage(message)" class="pure-button pure-button-primary">Submit</button> 
+      <img src="assets/spiffygif_46x46.gif" alt="Loading" ng-show="loading">
+
+      </fieldset>
+    </form>
+  </div>   
+
+    <!--<h1>{{ message }}</h1>-->
 </div>
