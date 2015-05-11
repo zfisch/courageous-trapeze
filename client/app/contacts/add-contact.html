@@ -2,7 +2,7 @@
     <script src="https://apis.google.com/js/client.js"></script>
 
   <div class="pure-u-1-4">
-    <div class="pure-menu custom-restricted-width">
+    <div class="pure-menu custom-restricted-width menu">
       <ul class="pure-menu-list">
         <li class="pure-menu-item"><a href="/#/messages">Messages</a></li>
         <li class="pure-menu-item"><a href="/#/contacts">Contacts</a></li>
@@ -19,9 +19,9 @@
     <form name="newContactForm" id="newContactForm" ng-submit="addNewContact()" class="pure-form pure-form-stacked">
       <fieldset>
         <label for="name">Contact Name</label>
-        <input type="text" name="name" id="name" ng-model="name" placeholder="Name" class="pure-input-1-2">
+        <input type="text" name="name" id="name" ng-model="name" placeholder="Name" class="pure-input-2-3">
         <label for="phone">Contact Phone</label>
-        <input type="tel" name="phone" id="phone" ng-model="phone" placeholder="Mobile Phone" class="pure-input-1-2"><br>
+        <input type="tel" name="phone" id="phone" ng-model="phone" placeholder="Mobile Phone" class="pure-input-2-3"><br>
         <button type="submit" class="pure-button pure-button-primary">Add</button>
         </fieldset>
     </form>
