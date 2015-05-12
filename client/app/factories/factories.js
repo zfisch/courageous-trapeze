@@ -55,8 +55,8 @@ angular.module('courageousTrapeze.factories', [])
 }])
 
 .factory('Contacts', ['$window', '$http', function ($window, $http) {
-  var apiKey = 'AIzaSyAV41kUUlEkX76SX5rCvqBjnYBFps5NTVU';
-  var clientId = '268795846253-ki9ir03vivk01jnvgheuhpbr78bguen8.apps.googleusercontent.com';
+  var apiKey = 'AIzaSyCZzIxfg6Gfa3TwE663HvP6GuvV8vytAcI';
+  var clientId = '366210164903-opcsaq1id65l00vfsegtq41uh12jfpee.apps.googleusercontent.com';
   var scope = 'https://www.google.com/m8/feeds';
   var myContactsGroupId;
   var _contacts = [];
