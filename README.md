@@ -29,6 +29,12 @@ As of v0.0.1, the product is composed of two UIs—the web app and the mobile ap
 
 ## Development
 
+### Google Account
+
+In order to enable the Google contacts import, a Google account, Google Contacts API key, and Google Client ID are required. Details on how to set up all these components can be found on the [https://developers.google.com/google-apps/contacts/v3/](Google Contacts) API page.
+
+Once you have your own Google API key and Google Client ID, set them in the `Contacts` factory in `factories.js`.
+
 ### Installing Dependencies
 
 From within the root directory:
