@@ -31,8 +31,11 @@ module.exports = {
         response.status(200).send(doc);
       }
     });
+    
+    var timeToSend = messageObject.date;
 
-    agenda.schedule('in 10 seconds', 'send message', messageObject);
+    //schedule event to send message through agenda, see: https://github.com/rschmukler/agenda
+    agenda.schedule(timeToSend, 'send message', messageObject);
     agenda.start();
 
   },
