@@ -23,3 +23,6 @@ client/app/app.min.js
 node_modules/
 bower_components/
 client/lib/
+
+# Custom Ignore
+.DS_Store
