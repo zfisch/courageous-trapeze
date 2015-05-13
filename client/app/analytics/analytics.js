@@ -7,8 +7,37 @@ angular.module('courageousTrapeze.analytics', [])
     { 'time': 3, 'value': 1 },
     { 'time': 4, 'value': 33 },
     { 'time': 5, 'value': 21 }
-
   ];
+
+  $scope.filt = function() {
+    $scope.clicks = [
+      { 'time': 1, 'value': 22 },
+      { 'time': 2, 'value': 25 },
+      { 'time': 3, 'value': 2 },
+      { 'time': 4, 'value': 11 },
+      { 'time': 5, 'value': 21 }
+    ];
+  };
+
+  $scope.filttwo = function() {
+    $scope.clicks = [
+      { 'time': 1, 'value': 11 },
+      { 'time': 2, 'value': 11 },
+      { 'time': 3, 'value': 11 },
+      { 'time': 4, 'value': 11 },
+      { 'time': 5, 'value': 11 }
+    ];
+  };
+
+  $scope.filtthree = function() {
+    $scope.clicks = [
+      { 'time': 1, 'value': 102 },
+      { 'time': 2, 'value': 152 },
+      { 'time': 3, 'value': 234 },
+      { 'time': 4, 'value': 232 },
+      { 'time': 5, 'value': 213 }
+    ];
+  };
 }])
 
 .directive('d3Bar', [function() {
@@ -19,7 +48,7 @@ angular.module('courageousTrapeze.analytics', [])
     },
     link: function(scope, el) {
       var margin = {top: 50, right: 50, bottom: 50, left: 50};
-      var width = 1000 - margin.left - margin.right;
+      var width = 500 - margin.left - margin.right;
       var height = 450 - margin.top - margin.bottom;
 
       var svg = d3.select(el[0])
@@ -82,4 +111,5 @@ angular.module('courageousTrapeze.analytics', [])
     }
   };
 }])
+
 ;
