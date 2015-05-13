@@ -7,6 +7,7 @@ var _ = require('underscore');
 // local dependencies
 var Message = require('./messageModel.js');
 var Contact = require('../contacts/contactModel.js');
+var agenda = require('./scheduler.js');
 
 
 module.exports = {
@@ -30,6 +31,10 @@ module.exports = {
         response.status(200).send(doc);
       }
     });
+
+    agenda.schedule('in 10 seconds', 'send message', messageObject);
+    agenda.start();
+
   },
 
   updateMessage: function (request, response) {
