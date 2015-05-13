@@ -28,6 +28,7 @@ module.exports = function(grunt) {
           'client/app/contacts/**/*.js',
           'client/app/messages/**/*.js',
           'client/app/schedule/**/*.js',
+          'client/app/analytics/**/*.js',
           'client/app/auth/**/*.js',
           'client/app/app.js'
         ],
