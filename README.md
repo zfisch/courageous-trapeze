@@ -1,6 +1,6 @@
-# antiSocialite v0.0.1
+# Scheduler v0.0.1
 
-antiSocialite allows you to schedule SMS communications with your closest contacts.
+Scheduler allows you to schedule SMS communications with your clients and analyze the responses.
 
 ## Table of Contents
 
@@ -14,9 +14,16 @@ antiSocialite allows you to schedule SMS communications with your closest contac
 
 ## Usage
 
-As of v0.0.1, the product is composed of two UIs—the web app and the mobile app (Android). The web app is used to view and add contacts, as well as to view and schedule messages. The mobile app is used to retrieve scheduled messages for the day and to send the messages.
+The web app is used to view and add contacts, as well as to view and schedule messages.
 
 ## Team
+
+  - __Product Owner__: Charlie Hwang
+  - __Scrum Master__: Zack Fischmann
+  - __Development Team Members__: Brant Choate, Johnny Nguyen, Charlie Hwang, Zack Fischmann
+
+
+###This fork is based off of a project by:
 
   - __Product Owner__: Melanie Gin
   - __Scrum Master__: Kevin Huang
@@ -72,7 +79,7 @@ Navigate to [http://localhost:3000](http://localhost:3000) in your browser.
 
 ### Roadmap
 
-View the project roadmap [here](https://github.com/courageous-trapeze/courageous-trapeze/issues)
+View the project roadmap [here](https://github.com/isolated-ocelot/courageous-trapeze/issues)
 
 ## Deployment
 
