@@ -49,9 +49,7 @@
     "mongoose": "^4.0.2",
     "mpromise": "^0.5.5",
     "node-mongo-seeds": "^2.2.4",
-    "underscore": "^1.8.3",
-    "jwt-simple": "^0.3.0",
     "twilio": "^2.2.0",
-    "mongoose": "^4.0.2"
+    "underscore": "^1.8.3"
   }
 }
