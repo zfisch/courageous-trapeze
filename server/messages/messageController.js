@@ -7,14 +7,13 @@ var _ = require('underscore');
 // local dependencies
 var Message = require('./messageModel.js');
 var Contact = require('../contacts/contactModel.js');
-var User = require('./users/userModel.js');
+var User = require('../users/userModel.js');
 var agenda = require('./scheduler.js');
 
 
 module.exports = {
   addMessage: function (request, response) {
   // logic to add or update Message after server receives POST request
-    console.log(request.user.userId);
     var messageObject = {
       userId: request.user.userId,
       contactId: request.body.contactId,
@@ -34,6 +33,9 @@ module.exports = {
     });
     
     var timeToSend = messageObject.date;
+    
+    //TODO: remove before deploy
+    timeToSend = 'in 2 seconds';
 
     //schedule event to send message through agenda, see: https://github.com/rschmukler/agenda
     agenda.schedule(timeToSend, 'send message', messageObject);
