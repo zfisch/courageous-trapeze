@@ -123,27 +123,25 @@ angular.module('courageousTrapeze.analytics', [])
       var height = 300;
       var radius = Math.min(width, height) / 2;
       var color = d3.scale.ordinal().range(['#98abc5', '#8a89a6', '#7b6888', '#6b486b', '#a05d56', '#d0743c', '#ff8c00']);
-      scope.render = function(){
-        var arc = d3.svg.arc()
-          .outerRadius(radius - 10)
-          .innerRadius(radius - 70);
-        var data = scope.data;
-        var pie = d3.layout.pie()
-          .sort(null)
-          .value(function(d) { return d.value; });
-        var svg = d3.select("body").append("svg")
-            .attr("width", width)
-            .attr("height", height)
-          .append("g")
-            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+      var arc = d3.svg.arc()
+        .outerRadius(radius - 10)
+        .innerRadius(radius - 70);
+      var data = scope.data;
+      var pie = d3.layout.pie()
+        .sort(null)
+        .value(function(d) { return d.value; });
+      var svg = d3.select(el[0]).append("svg")
+          .attr("width", width)
+          .attr("height", height)
+        .append("g")
+          .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-        data.forEach(function(d) {
-          d.value = +d.value;
-        });
+      scope.render = function(data){
 
-        var g = svg.selectAll(".arc")
-            .data(pie(data))
-          .enter().append("g")
+        svg.selectAll('g').remove();
+        var g = svg.selectAll(".arc").data(pie(data));
+
+        g.enter().append("g")
             .attr("class", "arc");
 
         g.append("path")
@@ -155,6 +153,11 @@ angular.module('courageousTrapeze.analytics', [])
           .attr("dy", ".35em")
           .style("text-anchor", "middle")
           .text(function(d) { return d.data.time; });
+
+        g.transition().duration(1000).attr('d', arc);
+
+
+
       };
 
       scope.$watch('data', function(){
