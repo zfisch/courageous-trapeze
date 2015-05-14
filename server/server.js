@@ -22,29 +22,6 @@ db.once('open', function () {
 
 middleware(app, express);
 
-/*******************************
-Twillio Route
-********************************/
-
-//Testing sending out SMS through Twilio
-// app.post('/messageOUT',
-//   function(req, res, next){  
-//     client.sendMessage({
-
-//       to:'+16502242246', // Any number Twilio can deliver to
-//       from: '+14153196800', // A number you bought from Twilio and can use for outbound communication
-//       body: 'Testing message from Twillio.' // body of the SMS message
-
-//     }, function(err, responseData) { //this function is executed when a response is received from Twilio
-//          if(err){
-//            res.send(400, "Wrong Number"); 
-//          } else {
-//            res.send(responseData);
-//          }
-//     });
-//   }
-// );
-
 app.post('/messageIN',
   function(req, res, next){ 
     var message = req.body.Body;
@@ -63,11 +40,6 @@ app.post('/messageIN',
     });
   }
 );
-
-/******************************
-Testing Twillio
-*************************/
-
 
 module.exports = app;
 
