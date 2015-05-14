@@ -30,6 +30,7 @@ angular.module('courageousTrapeze.factories', [])
   };
 
   var signup = function (user) {
+    console.log(user);
     return $http({
       method: 'POST',
       url: '/api/users/signup',

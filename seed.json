@@ -1,5 +1,5 @@
 {
-  "undefined":"localhost/courageoustrapezedb",
-  "dev":"localhost/courageoustrapezedb",
+  "undefined":"localhost/schedule",
+  "dev":"localhost/schedule",
   "prod":"localhost/PROD_DB_NAME" 
 }

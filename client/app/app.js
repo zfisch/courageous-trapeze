@@ -4,6 +4,7 @@ angular.module('courageousTrapeze', [
   'courageousTrapeze.schedule',
   'courageousTrapeze.messages',
   'courageousTrapeze.auth',
+  'courageousTrapeze.analytics',
   'ngRoute'
 ])
 
@@ -36,6 +37,11 @@ angular.module('courageousTrapeze', [
     .when('/messages', {
       templateUrl: 'app/messages/messages.html',
       controller: 'MessagesController',
+      authenticate: true
+    })
+    .when('/analytics', {
+      templateUrl: 'app/analytics/analytics.html',
+      controller: 'AnalyticsController',
       authenticate: true
     })
     .when('/', {

@@ -8,7 +8,7 @@ var app = express();
 
 // preferable to mongoose.createConnection, as we do not need multiple database connections
 // see: http://mongoosejs.com/docs/connections.html
-var mongoURI = process.env.DATABASE_URL || 'mongodb://localhost/courageoustrapezedb';
+var mongoURI = process.env.DATABASE_URL || 'mongodb://localhost/schedule';
 mongoose.connect(mongoURI);
 
 var db = mongoose.connection;

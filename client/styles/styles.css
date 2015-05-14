@@ -30,6 +30,12 @@ a {
   text-decoration: none;
 }
 
+[ng-click],
+[data-ng-click],
+[x-ng-click] {
+    cursor: pointer;
+}
+
 .white-text {
   color: #fff;
 }
@@ -153,3 +159,8 @@ button:focus {
   height: 100%;
   padding-bottom: 40px;
 }
+
+/* Analytics */
+
+rect {fill: #ACA1F8;}
+g {fill: #ccc;}
