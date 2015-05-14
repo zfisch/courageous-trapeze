@@ -50,6 +50,11 @@
     "mpromise": "^0.5.5",
     "node-mongo-seeds": "^2.2.4",
     "twilio": "^2.2.0",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "bower": "^1.4.x"
+  },
+  
+  "scripts": {
+    "postinstall": "./node_modules/grunt-cli/bin/grunt && ./node_modules/.bin/bower install"
   }
 }
