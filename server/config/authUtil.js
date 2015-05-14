@@ -57,9 +57,9 @@ module.exports = {
     });
   },
 
-  createNewUser: function(username, password){
+  createNewUser: function(username, password, phone){
     return new Promise(function(resolve, reject) {
-      var newUser = {username: username, password: ''};
+      var newUser = {username: username, password: '', phone: phone};
       bcrypt.hash(password, null, null, function(err, hash){
         if (err) {
           console.error(err);
