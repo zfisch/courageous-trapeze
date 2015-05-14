@@ -8,7 +8,7 @@ var app = express();
 
 // preferable to mongoose.createConnection, as we do not need multiple database connections
 // see: http://mongoosejs.com/docs/connections.html
-var mongoURI = process.env.DATABASE_URL || 'mongodb://localhost/schedule';
+var mongoURI = process.env.MONGOLAB_URI || 'mongodb://localhost/schedule';
 mongoose.connect(mongoURI);
 
 var db = mongoose.connection;
@@ -20,6 +20,53 @@ db.once('open', function () {
 });
 
 middleware(app, express);
+
+/*******************************
+Twillio Route
+********************************/
+
+//Testing sending out SMS through Twilio
+// app.post('/messageOUT',
+//   function(req, res, next){  
+//     client.sendMessage({
+
+//       to:'+16502242246', // Any number Twilio can deliver to
+//       from: '+14153196800', // A number you bought from Twilio and can use for outbound communication
+//       body: 'Testing message from Twillio.' // body of the SMS message
+
+//     }, function(err, responseData) { //this function is executed when a response is received from Twilio
+//          if(err){
+//            res.send(400, "Wrong Number"); 
+//          } else {
+//            res.send(responseData);
+//          }
+//     });
+//   }
+// );
+
+app.post('/messageIN',
+  function(req, res, next){ 
+    var message = req.body.Body;
+    var from = req.body.From;
+    client.sendMessage({
+
+      to:'+16502242246', // Any number Twilio can deliver to
+      from: '+14153196800', // A number you bought from Twilio and can use for outbound communication
+      body: "Message From: " + from + "\n" + message
+    }, function(err, responseData) { 
+         if(err){
+           res.send(400, "Wrong Number"); 
+         } else {
+           res.send(responseData);
+         }
+    });
+  }
+);
+
+/*******************************
+Testing Twillio
+*************************
+
 
 module.exports = app;
 
