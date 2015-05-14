@@ -7,6 +7,7 @@ var _ = require('underscore');
 // local dependencies
 var Message = require('./messageModel.js');
 var Contact = require('../contacts/contactModel.js');
+var User = require('./users/userModel.js');
 var agenda = require('./scheduler.js');
 
 
