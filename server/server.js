@@ -3,12 +3,13 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var middleware = require('./config/middleware.js');
+var client = require('../twilio.js');
 
 var app = express();
 
 // preferable to mongoose.createConnection, as we do not need multiple database connections
 // see: http://mongoosejs.com/docs/connections.html
-var mongoURI = process.env.DATABASE_URL || 'mongodb://localhost/schedule';
+var mongoURI = process.env.MONGOLAB_URI || 'mongodb://localhost/schedule';
 mongoose.connect(mongoURI);
 
 var db = mongoose.connection;
@@ -20,6 +21,25 @@ db.once('open', function () {
 });
 
 middleware(app, express);
+
+app.post('/messageIN',
+  function(req, res, next){ 
+    var message = req.body.Body;
+    var from = req.body.From;
+    client.sendMessage({
+
+      to:'+16502242246', // Any number Twilio can deliver to
+      from: '+14153196800', // A number you bought from Twilio and can use for outbound communication
+      body: "Message From: " + from + "\n" + message
+    }, function(err, responseData) { 
+         if(err){
+           res.send(400, "Wrong Number"); 
+         } else {
+           res.send(responseData);
+         }
+    });
+  }
+);
 
 module.exports = app;
 
@@ -36,5 +56,5 @@ module.exports = app;
     the respective file is required in middleware.js and injected with its mini-router
     that route file then requires the respective controller and sets up all the routes
     that controller then requires the respective model and sets up all our endpoints which respond to request
+*/    
 
-*/

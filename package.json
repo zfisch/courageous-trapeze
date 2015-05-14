@@ -49,8 +49,12 @@
     "mongoose": "^4.0.2",
     "mpromise": "^0.5.5",
     "node-mongo-seeds": "^2.2.4",
+    "twilio": "^2.2.0",
     "underscore": "^1.8.3",
-    "jwt-simple": "^0.3.0",
-    "mongoose": "^4.0.2"
+    "bower": "^1.4.x"
+  },
+  
+  "scripts": {
+    "postinstall": "./node_modules/grunt-cli/bin/grunt && ./node_modules/.bin/bower install"
   }
 }
