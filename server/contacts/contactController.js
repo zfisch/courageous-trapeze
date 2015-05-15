@@ -61,7 +61,8 @@ module.exports = {
   
   findContact: function(request, response){
     console.log("FINDCONTACT", request.body);
-    var query = {'phone' : request.body.from};
+    var numberFrom = request.body.from.slice(1); 
+    var query = {'phone' : numberFrom};
     Contact.find(query, function(error ,docs){
       if (error) {
         response.status(500).end('Error: Could not find contacts');
