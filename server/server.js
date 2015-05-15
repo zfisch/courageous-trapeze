@@ -27,7 +27,7 @@ middleware(app, express);
 app.post('/messageIN',
   function(req, res, next){ 
 
-    var numberFrom = Number(request.body.From.slice(1));
+    var numberFrom = Number(req.body.From.slice(1));
     var query = {'phone' : numberFrom};
     contacts.find(query, function(error ,docs){
       if(error){
