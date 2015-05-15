@@ -58,7 +58,7 @@ module.exports = {
       });
     });
   },
-  
+
   showContacts: function (request, response) {
   // logic to return all Contacts after server receives GET request
 
