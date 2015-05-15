@@ -4,7 +4,7 @@ var twilio = require('../config/twilio.js');
 var User = mongoose.model('User');
 var Contact = mongoose.model('Contact');
 
-var agenda = new Agenda({db: { address: 'localhost:27017/courageoustrapezedb'}});
+var agenda = new Agenda({db: { address: process.env.MONGOLAB_URI || 'localhost:27017/courageoustrapezedb'}});
 
 agenda.define('send message', function(job, done) {
   var data = job.attrs.data;
