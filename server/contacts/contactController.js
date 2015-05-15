@@ -59,6 +59,26 @@ module.exports = {
     });
   },
   
+  findContact: function(request, response){
+
+    var query = {'phone' : request.body.from};
+    Contact.find(query, function(error ,docs){
+      if (error) {
+        response.status(500).end('Error: Could not find contacts');
+      } else {
+        response.set('Content-Type', 'application/json');
+        if (docs) {
+          response.status(200).send(docs);
+        } else {
+          response.status(200).send([]);
+        }
+      }
+    })
+  },
+
+
+
+
   showContacts: function (request, response) {
   // logic to return all Contacts after server receives GET request
 
