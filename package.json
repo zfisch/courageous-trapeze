@@ -55,8 +55,7 @@
     "underscore": "^1.8.3"
   },
   "scripts": {
-    "postinstall": "./node_modules/grunt-cli/bin/grunt && ./node_modules/.bin/bower install",
-    "underscore": "^1.8.3"
+    "postinstall": "./node_modules/grunt-cli/bin/grunt && ./node_modules/.bin/bower install"
   },
   "devDependencies": {
     "chai": "^2.3.0",
