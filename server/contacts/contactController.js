@@ -60,7 +60,7 @@ module.exports = {
   },
   
   findContact: function(request, response){
-
+    console.log("FINDCONTACT", request.body);
     var query = {'phone' : request.body.from};
     Contact.find(query, function(error ,docs){
       if (error) {

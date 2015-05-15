@@ -4,8 +4,8 @@ var express = require('express');
 var mongoose = require('mongoose');
 var middleware = require('./config/middleware.js');
 var client = require('./config/twilio.js');
-var contact = require('./contacts/contactController');
-var message = require('./messages/messageController');
+var contacts = require('./contacts/contactController.js');
+var messages = require('./messages/messageController.js');
 
 var app = express();
 
@@ -27,14 +27,14 @@ middleware(app, express);
 app.post('/messageIN',
   function(req, res, next){ 
 
-    var contact = contact.findContact(req, res);
+    var contact = contacts.findContact(req, res);
 
     req.body.contactId = contact.id;
     req.body.userId = '5556368fd9fc090300e6f6d7';
     req.body.text = req.body.body;
     req.body.date = new Date();
 
-    message.addMessage(req, res);
+    messages.addMessage(req, res);
 
     var message = req.body.Body;
     var from = req.body.From;
