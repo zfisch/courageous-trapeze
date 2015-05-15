@@ -1,6 +1,6 @@
 var Agenda = require('agenda');
 var mongoose = require('mongoose');
-var twilio = require('../../twilio.js');
+var twilio = require('../config/twilio.js');
 var User = mongoose.model('User');
 var Contact = mongoose.model('Contact');
 
