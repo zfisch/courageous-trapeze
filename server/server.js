@@ -40,7 +40,7 @@ app.post('/messageIN',
           date: new Date(),
           status: 'response'
         };
-        var newMessage = new Message(messageObject);
+        var newMessage = new messages(messageObject);
         newMessage.save(function (error, doc) {
           if (error) {
             res.status(500).send('Error: Could not save message');
