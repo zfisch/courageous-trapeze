@@ -30,6 +30,32 @@ a {
   text-decoration: none;
 }
 
+
+/* Media Queries for Responsive Design */
+
+@media all and (min-width: 960px) {
+  #pigeon{
+    width: 15%;
+    margin-top: 5%;
+  }
+}
+ 
+@media all and (max-width: 959px) and (min-width: 600px) {
+  #pigeon{
+    width: 25%;
+    margin-top: 10%;
+  }
+}
+ 
+@media all and (max-width: 599px) and (min-width: 320px) {
+  #pigeon{
+    width: 50%;
+    margin-top: 15%;
+  }
+}
+
+/* Custom CSS */
+
 [ng-click],
 [data-ng-click],
 [x-ng-click] {
@@ -49,6 +75,7 @@ a {
   font-size: 22px;
   font-weight: bold:
 }
+
 
 .label {
   display: inline-block;
@@ -108,12 +135,13 @@ button:focus {
   display: inline-block;
   vertical-align: middle;
   margin: 15px 0;
+  font-family: 'Oleo Script', cursive;
 }
 
 .headingBar {
   width: 100%;
-  background-color: #A7DBD8;
-  color: #fff;
+  background-color: #fff;
+  color: #333;
   height: 70px;
 }
 
@@ -124,7 +152,7 @@ button:focus {
 
 #index {
   text-align: center;
-  background: url('/assets/calendar.jpeg') bottom;
+  background: url('/assets/sky.jpg') bottom;
   height: 100%;
   background-size: cover;
 
@@ -157,7 +185,23 @@ button:focus {
 #greeting {
   background-color: rgba(255,255,255,0.1);
   height: 100%;
-  padding-bottom: 40px;
+}
+
+#appName {
+  font-family: 'Oleo Script', cursive;
+  font-size: 4em;
+  margin: 0 0 0 0;
+  padding: 15px 15px 0 15px;
+  color: white;
+}
+
+#tagLine {
+  padding: 0px 15px 10px 15px;
+  color: white;
+}
+
+#greetingText {
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 /* Analytics */
