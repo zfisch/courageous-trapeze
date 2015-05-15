@@ -61,7 +61,8 @@ module.exports = {
   
   findContact: function(request, response){
     console.log("FINDCONTACT", request.body);
-    var numberFrom = request.body.from.slice(1); 
+    var numberFrom = request.body.From.slice(1);
+    console.log("NUM", numberFrom); 
     var query = {'phone' : numberFrom};
     Contact.find(query, function(error ,docs){
       if (error) {
@@ -69,6 +70,7 @@ module.exports = {
       } else {
         response.set('Content-Type', 'application/json');
         if (docs) {
+          console.log('docs: ', docs);
           response.status(200).send(docs);
         } else {
           response.status(200).send([]);

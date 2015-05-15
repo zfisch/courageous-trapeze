@@ -4,8 +4,8 @@ var express = require('express');
 var mongoose = require('mongoose');
 var middleware = require('./config/middleware.js');
 var client = require('./config/twilio.js');
-var contacts = require('./contacts/contactController.js');
-var messages = require('./messages/messageController.js');
+var contacts = require('./contacts/contactModel.js');
+var messages = require('./messages/messageModel.js');
 
 var app = express();
 
@@ -27,28 +27,40 @@ middleware(app, express);
 app.post('/messageIN',
   function(req, res, next){ 
 
-    var contact = contacts.findContact(req, res);
-
-    req.body.contactId = contact.id;
-    req.body.userId = '5556368fd9fc090300e6f6d7';
-    req.body.text = req.body.body;
-    req.body.date = new Date();
-
-    messages.addMessage(req, res);
-
-    var message = req.body.Body;
-    var from = req.body.From;
-    client.sendMessage({
-
-      to:'+16502242246', // Any number Twilio can deliver to
-      from: '+14153196800', // A number you bought from Twilio and can use for outbound communication
-      body: "Message From: " + from + "\n" + message
-    }, function(err, responseData) { 
-         if(err){
-           res.send(400, "Wrong Number"); 
-         } else {
-           res.send(responseData);
-         }
+    var numberFrom = Number(request.body.From.slice(1));
+    var query = {'phone' : numberFrom};
+    contacts.find(query, function(error ,docs){
+      if(error){
+        res.status(500).send('Error: Could not save contact');
+      }else {
+        var messageObject = {
+          userId: '5556368fd9fc090300e6f6d7',
+          contactId: docs.id,
+          text: req.body.Body,
+          date: new Date(),
+          status: 'response'
+        };
+        var newMessage = new Message(messageObject);
+        newMessage.save(function (error, doc) {
+          if (error) {
+            res.status(500).send('Error: Could not save message');
+          } else {
+            var message = req.body.Body;
+            var from = req.body.From;
+            client.sendMessage({
+              to:'+16502242246', // Any number Twilio can deliver to
+              from: '+14153196800', // A number you bought from Twilio and can use for outbound communication
+              body: "Message From: " + from + "\n" + message
+            }, function(err, responseData) { 
+                 if(err){
+                   res.send(400, "Wrong Number"); 
+                 } else {
+                   res.send(responseData);
+                 }
+            });
+          }
+        }); 
+      }
     });
   }
 );
