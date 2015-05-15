@@ -24,7 +24,7 @@ var messageSchema = new mongoose.Schema({
     required: true
   },
   date: {
-    type: Number,
+    type: Date,
     required: true
   },
   status: {

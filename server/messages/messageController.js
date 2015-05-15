@@ -7,17 +7,18 @@ var _ = require('underscore');
 // local dependencies
 var Message = require('./messageModel.js');
 var Contact = require('../contacts/contactModel.js');
+var User = require('../users/userModel.js');
+var agenda = require('./scheduler.js');
 
 
 module.exports = {
   addMessage: function (request, response) {
   // logic to add or update Message after server receives POST request
-    console.log(request.user.userId);
     var messageObject = {
       userId: request.user.userId,
       contactId: request.body.contactId,
       text: request.body.text,
-      date: Date.parse(request.body.date) || request.body.date,
+      date: new Date(request.body.date),
       status: 'scheduled'
     };
     // see: http://mongoosejs.com/docs/models.html
@@ -30,6 +31,16 @@ module.exports = {
         response.status(200).send(doc);
       }
     });
+    
+    var timeToSend = messageObject.date;
+
+    //Default timetosend for testing:
+    // timeToSend = 'in 2 seconds';
+
+    //schedule event to send message through agenda, see: https://github.com/rschmukler/agenda
+    agenda.schedule(timeToSend, 'send message', messageObject);
+    agenda.start();
+
   },
 
   updateMessage: function (request, response) {
