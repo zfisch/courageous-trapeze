@@ -3,7 +3,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var middleware = require('./config/middleware.js');
-var client = require('../twilio.js');
+var client = require('./config/twilio.js');
 
 var app = express();
 
