@@ -15,7 +15,6 @@ angular.module('courageousTrapeze.auth', [])
   };
 
   $scope.signup = function () {
-    console.log($scope.user);
     Auth.signup($scope.user)
     .success(function (data) {
       window.localStorage.setItem('courageousTrapeze', data.token);
