@@ -2,7 +2,6 @@ var Agenda = require('agenda');
 var mongoose = require('mongoose');
 var twilio = require('../../twilio.js');
 var User = mongoose.model('User');
-var Message = mongoose.model('Message');
 var Contact = mongoose.model('Contact');
 
 var agenda = new Agenda({db: { address: 'localhost:27017/courageoustrapezedb'}});
@@ -19,6 +18,8 @@ agenda.define('send message', function(job, done) {
     contactPhone = data['phone'];
     User.findById(data.userId, function(err, data){
       userPhone = data['phone'];
+      
+      //create and send message through twilio
       twilio.messages.create({
         body: messageBody,
         to: contactPhone,
