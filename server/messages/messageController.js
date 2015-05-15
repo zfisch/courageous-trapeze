@@ -18,7 +18,7 @@ module.exports = {
       userId: request.user.userId,
       contactId: request.body.contactId,
       text: request.body.text,
-      date: Date.parse(request.body.date) || request.body.date,
+      date: new Date(request.body.date),
       status: 'scheduled'
     };
     // see: http://mongoosejs.com/docs/models.html
@@ -33,9 +33,9 @@ module.exports = {
     });
     
     var timeToSend = messageObject.date;
-    
-    //TODO: remove before deploy
-    timeToSend = 'in 2 seconds';
+
+    //Default timetosend for testing:
+    // timeToSend = 'in 2 seconds';
 
     //schedule event to send message through agenda, see: https://github.com/rschmukler/agenda
     agenda.schedule(timeToSend, 'send message', messageObject);
