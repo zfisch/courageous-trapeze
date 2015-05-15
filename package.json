@@ -5,20 +5,20 @@
   "author": "Courageous Trapeze <courageoustrapeze@gmail.com>",
   "contributors": [
     {
-      "name": "Melanie Gin",
-      "email": "melaniegin1@gmail.com"
+      "name": "Johnny Nguyen",
+      "email": "hellojohnnguyen@gmail.com"
     },
     {
-      "name": "Mike Harris",
-      "email": "mwharris333@gmail.com"
+      "name": "Zack Fischmann ",
+      "email": "zacharyrobert@gmail.com"
     },
     {
-      "name": "Kevin Huang",
-      "email": "huang.kev@gmail.com"
+      "name": "Charlie Hwang",
+      "email": "cwhwang1986@gmail.com"
     },
     {
-      "name": "John Yeglinski",
-      "email": "jmyeglinski@gmail.com"
+      "name": "Brant Choate",
+      "email": "brantchoate@gmail.com"
     }
   ],
   "main": "server.js",
@@ -27,13 +27,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/courageous-trapeze/courageous-trapeze.git"
+    "url": "https://github.com/Isolated-Ocelot/courageous-trapeze"
   },
   "license": "BSD 3-Clause",
   "bugs": {
-    "url": "https://github.com/courageous-trapeze/courageous-trapeze/issues"
+    "url": "https://github.com/Isolated-Ocelot/courageous-trapeze/issues"
   },
-  "homepage": "https://github.com/courageous-trapeze/courageous-trapeze",
+  "homepage": "https://github.com/Isolated-Ocelot/courageous-trapeze",
   "dependencies": {
     "agenda": "^0.6.28",
     "bcrypt-nodejs": "0.0.3",
@@ -56,5 +56,21 @@
   },
   "scripts": {
     "postinstall": "./node_modules/grunt-cli/bin/grunt && ./node_modules/.bin/bower install"
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "chai": "^2.3.0",
+    "karma": "^0.12.31",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^0.1.12",
+    "karma-firefox-launcher": "^0.1.6",
+    "karma-mocha": "^0.1.10",
+    "karma-mocha-reporter": "^1.0.2",
+    "karma-requirejs": "^0.2.2",
+    "karma-sinon": "^1.0.4",
+    "mocha": "^2.2.5",
+    "requirejs": "^2.1.17",
+    "sinon": "^1.14.1"
+>>>>>>> create unit tests
   }
 }
