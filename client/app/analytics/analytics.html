@@ -11,13 +11,20 @@
     </div>
   </div>
   <div class="pure-u-3-4">
-    <d3-bar data="clicks"></d3-bar>
-    <d3-donut data="clicks"></d3-donut>
-    <ul>
-      <li><a ng-click="filt()">CLICK MEEE</a></li>
-      <li><a ng-click="filttwo()">CLICK MEEE</a></li>
-      <li><a ng-click="filtthree()">CLICK MEEE</a></li>
-    </ul>
+    <div class="pure-g">
+      <h1 class="analytics-header pure-u-1-4">Analytics</h1>
+      <ul class="analytics-filters pure-u-3-4">
+        <li><a ng-click="filt()">DAILY</a></li>
+        <li><a ng-click="filttwo()">WEEKLY</a></li>
+        <li><a ng-click="filtthree()">MONTHLY</a></li>
+      </ul>
+    </div>
+    
+    <div class="card">
+      <d3-bar data="clicks"></d3-bar>
+    </div>
+    <div class="card">
+      <d3-donut data="clicks"></d3-donut>
+    </div>
   </div>
 </div>
-
