@@ -48,8 +48,8 @@ angular.module('courageousTrapeze.analytics', [])
     },
     link: function(scope, el) {
       var margin = {top: 50, right: 50, bottom: 50, left: 50};
-      var width = 500 - margin.left - margin.right;
-      var height = 450 - margin.top - margin.bottom;
+      var width = 400 - margin.left - margin.right;
+      var height = 300 - margin.top - margin.bottom;
 
       var svg = d3.select(el[0])
         .append('svg')
@@ -100,7 +100,7 @@ angular.module('courageousTrapeze.analytics', [])
       
         bars
           .transition()
-          .duration(1000)
+          .duration(500)
           .attr('height', function(d) { return height - y(d.value); })
           .attr('y', function(d) { return y(d.value); });
       };
@@ -154,9 +154,13 @@ angular.module('courageousTrapeze.analytics', [])
           .style("text-anchor", "middle")
           .text(function(d) { return d.data.time; });
 
-        g.transition().duration(1000).attr('d', arc);
-
-
+        g.selectAll('path').transition().duration(500).attrTween('d', function(d) {
+          var i = d3.interpolate(d.startAngle+0.1, d.endAngle);
+          return function(t) {
+            d.endAngle = i(t);
+            return arc(d);
+          }
+        });
 
       };
 
